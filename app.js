@@ -24,7 +24,11 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function (req, res) {
     res.render(
         'home',
-        { title : 'Home' }
+        {
+            title       : 'Home',
+            description : 'coming soon, something made with ♥ and JavaScript =)',
+            keywords    : 'museeks, music, music player, free, open-source'
+        }
     )
 })
 
