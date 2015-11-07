@@ -1,0 +1,28 @@
+{
+  "name": "museeks.io",
+  "version": "1.0.0",
+  "description": "http://museeks.io",
+  "main": "server.js",
+  "scripts": {
+    "forever": "forever start --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeitIG/museeks.io.git"
+  },
+  "author": "Pierre de la Martinière",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KeitIG/museeks.io/issues"
+  },
+  "homepage": "https://github.com/KeitIG/museeks.io#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "forever": "^0.15.1",
+    "jade": "^1.11.0",
+    "stylus": "^0.52.4"
+  },
+  "devDependencies": {
+    "eslint": "^1.9.0"
+  }
+}
