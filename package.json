@@ -4,7 +4,8 @@
   "description": "http://museeks.io",
   "main": "server.js",
   "scripts": {
-    "forever": "forever start --watch app.js"
+    "start": "forever start --watch app.js",
+    "stop": "forever stop app.js"
   },
   "repository": {
     "type": "git",
