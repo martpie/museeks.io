@@ -10,8 +10,8 @@ app.set('view engine', 'jade');
 app.use(stylus.middleware({
     src     : path.join(__dirname, 'src', 'styles'),
     dest    : path.join(__dirname, 'public'),
-    compile : function (str, path) { // optional, but recommended
-         return stylus(str)
+    compile : function (str, path) {
+        return stylus(str)
             .set('filename', path)
             .set('compress', true);
     }
@@ -32,4 +32,4 @@ app.get('/', function (req, res) {
     )
 })
 
-app.listen(80);
+app.listen(3000);
