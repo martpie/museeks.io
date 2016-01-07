@@ -1,11 +1,45 @@
 extend layout
 
 block content
-    .row
-        .col-sm-12
-            p.coming-soon.text-center
-                | coming soon, 
-                a(href='https://github.com/KeitIG/Museeks' title='Museeks' target='_blank') something
-                |  made with 
-                span(class='heart') ♥ 
-                |  and JavaScript =)
+    
+    .row#downloads
+        .col-sm-9
+            img(src='/screenshot.png' class='screenshot' alt='Museeks screenshot')
+        .col-sm-3
+            
+            h3.no-margin-top Downloads
+            
+            p 
+                | For the moment, only portable versions are available, installers may come in the future.
+            
+            a(href='#' class='btn btn-primary btn-block') 
+                i(class='fa fa-apple')
+                |  v0.1 OSX
+                
+            hr
+            
+            a(href='#' class='btn btn-primary btn-block') 
+                i(class='fa fa-windows')
+                |  v0.1 Windows 32bits
+            a(href='#' class='btn btn-primary btn-block') 
+                i(class='fa fa-windows')
+                |  v0.1 Windows 64bits
+                
+            hr
+            
+            a(href='#' class='btn btn-primary btn-block') 
+                i(class='fa fa-linux')
+                |  v0.1 Linux 32bits
+            a(href='#' class='btn btn-primary btn-block') 
+                i(class='fa fa-linux')
+                |  v0.1 Linux 64bits
+
+            hr
+            
+            .text-center
+            
+                a(href='https://github.com/KeitIG/museeks/releases' target='_blank') Changelog
+                =' / '
+                a(href='https://github.com/KeitIG/museeks/blob/master/CHANGELOG.md#changelog' target='_blank') Roadmap
+                =' / '
+                a(href='https://github.com/KeitIG/museeks' target='_blank') Sources
