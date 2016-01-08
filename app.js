@@ -1,32 +1,66 @@
-var express = require('express'),
-    stylus  = require('stylus'),
-    path    = require('path');
+// Modules
+var express  = require('express'),
+    stylus   = require('stylus'),
+    path     = require('path'),
+    compress = require('compression'),
+    force    = require('forcedomain'),
+    minify   = require('express-minify');
 
 
+
+// The app
 var app = express();
 
+// Views and view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'jade');
+
+// Stylus
 app.use(stylus.middleware({
     src     : path.join(__dirname, 'src', 'styles'),
-    dest    : path.join(__dirname, 'public'),
+    dest    : path.join(__dirname, 'public', 'styles'),
     compile : function (str, path) {
         return stylus(str)
             .set('filename', path)
             .set('compress', true);
     }
 }));
-app.use(express.static(__dirname + '/public'))
+
+// Public pathes
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'src', 'images')));
+app.use('/scripts', express.static(path.join(__dirname, 'src', 'scripts')));
+
+// Gzip
+app.use(compress());
+
+// Minify css and js
+app.use(minify());
+
+// forcedomain
+app.use(force({
+    hostname : 'museeks.io',
+    type     : 'permanent'
+}));
 
 
 
 /*--- Routes -*/
+
+app.get('/*', function(req, res, next) {
+    if (req.headers.host.match(/^www/) !== null ) {
+        res.redirect(301, 'http://' + req.headers.host.replace(/^www\./, '') + req.url);
+    } else {
+        next();
+    }
+})
+
 app.get('/', function (req, res) {
     res.render(
         'home',
         {
             title       : 'Home',
-            description : 'coming soon, something made with ♥ and JavaScript =)',
+            description : 'Museeks is a lightweight and cross-platform music player',
             keywords    : 'museeks, music, music player, free, open-source'
         }
     )
