@@ -3,10 +3,11 @@ extend layout
 block content
     
     .row#downloads
+    
         .col-sm-9
             img(src='/images/screenshot.png' class='screenshot' alt='Museeks screenshot')
-        .col-sm-3
             
+        .col-sm-3
             h3.no-margin-top Downloads
             
             p 
@@ -43,3 +44,18 @@ block content
                 a(href='https://github.com/KeitIG/museeks/blob/master/CHANGELOG.md#changelog' target='_blank') Roadmap
                 =' / '
                 a(href='https://github.com/KeitIG/museeks' target='_blank') Sources
+                
+            hr
+            
+            table.contact-links
+                tbody
+                    tr
+                        td
+                            | Twitter
+                        td 
+                            a(href='https://twitter.com/MuseeksPlayer' target='_blank') @MuseeksPlayer
+                    tr
+                        td
+                            | Chatroom
+                        td 
+                            a(href='https://gitter.im/KeitIG/museeks' target='_blank') Gitter

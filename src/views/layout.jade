@@ -10,13 +10,19 @@ html
         meta(name='author' content='Pierre de la Martinière')
         meta(name='robots' content='index, follow')
         
+        meta(property='og:title' content='Museeks - #{title}')
+        meta(property='og:description' content='#{description}')
+        meta(property='og:type' content='website')
+        meta(property='og:url' content='http://museeks.io')
+        meta(property='og:image' content='http://museeks.io/screenshot.png')
+        
         link(rel='canonical' href='http://museeks.io/')
         link(rel='publisher' href='https://plus.google.com/u/0/+PierrevanMart')
 
         link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet' integrity='sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==' crossorigin='anonymous')
         link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet')
         link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css')
-        link(href='/main.css', rel='stylesheet')
+        link(href='/styles/main.css', rel='stylesheet')
         
     body
         #wrap
@@ -26,7 +32,7 @@ html
                         h1.thin.no-margin-bottom
                             | Museeks
                         h4.thin.no-margin-top 
-                            | a lightweight and cross-platform music player
+                            | a free, lightweight and cross-platform music player
 
             .container
                 .main-content
@@ -36,12 +42,15 @@ html
                 .row
                     .col-sm-12
                         p
-                            | made with 
+                            | made with
                             =' '
                             span(class='heart') ♥
                             |  and JavaScript by
                             =' '
                             a(href='http://pierrevanmart.com' target='_blank') this guy
-                            |  and a bunch of great collaborators
+                            |  and a bunch of great collaborators. Meet us on our
+                            =' '
+                            a(href='https://gitter.im/KeitIG/museeks' target='_blank') Gitter
+                            |  chatroom
 
         script(src='/scripts/main.js')

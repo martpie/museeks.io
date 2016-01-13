@@ -60,8 +60,8 @@ app.get('/', function (req, res) {
         'home',
         {
             title       : 'Home',
-            description : 'Museeks is a lightweight and cross-platform music player',
-            keywords    : 'museeks, music, music player, free, open-source'
+            description : 'Museeks is a free, lightweight and cross-platform music player',
+            keywords    : 'museeks, music, music player, free, lightweight, open-source, cross-platform'
         }
     )
 })
