@@ -18,15 +18,15 @@
   },
   "homepage": "https://github.com/KeitIG/museeks.io#readme",
   "dependencies": {
-    "compression": "^1.6.0",
-    "express": "^4.13.3",
-    "express-minify": "^0.1.6",
+    "compression": "^1.6.1",
+    "express": "^4.13.4",
+    "express-minify": "^0.2.0",
     "forcedomain": "^0.6.0",
     "forever": "^0.15.1",
     "jade": "^1.11.0",
     "stylus": "^0.53.0"
   },
   "devDependencies": {
-    "eslint": "^1.9.0"
+    "eslint": "^1.10.3"
   }
 }
