@@ -1,20 +1,26 @@
-var oReq = new XMLHttpRequest();
+var Museeks = {
 
-oReq.onload = function (e) {
+    checkDownloadsCount: function() {
 
-    var releases = e.currentTarget.response;
-    var count = 0;
+        var oReq = new XMLHttpRequest();
 
-    releases.forEach((elem) => {
+        oReq.onload = function (e) {
 
-        elem.assets.forEach((asset) => {
-            count += asset['download_count'];
-        })
-    });
+            var releases = e.currentTarget.response;
+            var count = 0;
 
-    console.info('Downloads count: ' + count);
-};
+            releases.forEach((elem) => {
 
-oReq.open('GET', 'https://api.github.com/repos/KeitIG/museeks/releases', true);
-oReq.responseType = 'json';
-oReq.send();
+                elem.assets.forEach((asset) => {
+                    count += asset['download_count'];
+                })
+            });
+
+            console.info('Downloads count: ' + count);
+        };
+
+        oReq.open('GET', 'https://api.github.com/repos/KeitIG/museeks/releases', true);
+        oReq.responseType = 'json';
+        oReq.send();
+    }
+}
