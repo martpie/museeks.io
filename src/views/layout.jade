@@ -29,10 +29,14 @@ html
             header.container
                 .row#welcome
                     .col-sm-12
-                        h1.thin.no-margin-bottom
-                            | Museeks
-                        h2.thin.no-margin-top.h4
-                            | a free, lightweight and cross-platform music player
+                        .header
+                            .logo-container
+                                img(src='/images/museeks.png' class='logo-museeks' alt='Logo' title='Logo Museeks')
+                            .titles-container
+                                h1.thin.no-margin-bottom.no-margin-top
+                                    | Museeks
+                                h2.thin.no-margin-top.h4
+                                    | a free, lightweight and cross-platform music player
 
             .container
                 .main-content

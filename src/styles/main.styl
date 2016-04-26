@@ -10,7 +10,21 @@
 
 body
     background-color #EEE
-    color: #555
+    color #555
+
+    header
+        .header
+            display flex;
+
+            .logo-container
+                width 70px
+
+                .logo-museeks
+                    display block
+                    width 60px
+
+            .titles-container
+                width calc(100% - 70px)
 
     .heart
         color #C70000
@@ -21,7 +35,7 @@ body
 
     .btn-primary
         border 0
-        background-color #459CE7
+        background-color #499cd5
         transition all .2s ease-in-out
         box-shadow none
 
@@ -29,11 +43,11 @@ body
         &:active,
         &:focus
             box-shadow none
-            background-color #459CE7
+            background-color #499cd5
 
         &:focus:active
             box-shadow none
-            background-color #2D78B9
+            background-color #4383AF
 
     hr
         margin-top 8px
