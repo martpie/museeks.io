@@ -2,7 +2,7 @@ extend layout
 
 block content
     
-    .row#downloads
+    .row#overview
     
         .col-md-9.col-sm-8
             img(src='/images/screenshot.png' class='screenshot' alt='Museeks screenshot')
@@ -57,3 +57,24 @@ block content
                             | Chatroom
                         td 
                             a(href='https://gitter.im/KeitIG/museeks' target='_blank') Gitter
+
+    .row#contributors 
+    
+        .col-sm-12
+            h3 Contributors    
+            p
+                | made with
+                =' '
+                span(class='heart') ♥
+                |  and JavaScript by
+                =' '
+                a(href='http://pierrevanmart.com' target='_blank') this guy
+                |  and a bunch of great collaborators. Meet us on our
+                =' '
+                a(href='https://gitter.im/KeitIG/museeks' target='_blank') Gitter
+                |  chatroom
+        
+        .col-sm-12.contributors-list
+            each contributor in contributors
+                a.contributor.text-center(href=contributor.html_url title=contributor.login)
+                    img.avatar(src=contributor.avatar_url)

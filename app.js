@@ -2,6 +2,7 @@
 var express  = require('express'),
     stylus   = require('stylus'),
     path     = require('path'),
+    https    = require('https'),
     compress = require('compression'),
     force    = require('forcedomain'),
     minify   = require('express-minify');
@@ -56,14 +57,49 @@ app.get('/*', function(req, res, next) {
 })
 
 app.get('/', function (req, res) {
-    res.render(
-        'home',
-        {
+
+    var options = {
+        method: 'GET',
+        host: 'api.github.com',
+        path: '/repos/KeitIG/museeks/contributors',
+        headers: {
+            'Content-Type': 'application/json',
+            'User-Agent': 'Museeks-Website'
+        }
+    };
+
+    https.get(options, function(call) {
+
+        var body = '';
+        var data = {
             title       : 'A simple, clean and cross-platform music player',
             description : 'Museeks is a simple, clean and cross-platform music player',
             keywords    : 'museeks, music, music player, simple, free, minimalistic, lightweight, open-source, cross-platform'
-        }
-    )
+        };
+
+        call.on('data', function(chunk) {
+
+            body += chunk;
+        });
+
+        call.on('end', function() {
+
+            res.render(
+                'home',
+                Object.assign(data, { contributors: JSON.parse(body) })
+            );
+        });
+
+
+    }).on('error', function(e) {
+
+        console.log(e);
+
+        res.render(
+            'home',
+            data
+        )
+    });
 })
 
 app.listen(80);
