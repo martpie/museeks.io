@@ -9,22 +9,49 @@
 
 
 body
+    font-family "Open Sans"
     background-color #EEE
     color #555
 
     header
-        .header
-            display flex;
+        background-color #e0e0e0
+        border-bottom solid 1px #cecece
+        padding 30px 0
 
-            .logo-container
-                width 70px
 
-                .logo-museeks
-                    display block
-                    width 60px
+        .container
 
-            .titles-container
-                width calc(100% - 70px)
+            .header-content
+                display flex
+                flex-direction column
+                align-items center
+                justify-content space-between
+
+                @media screen and (min-width: 768px)
+                    flex-direction row
+
+                .header-logo
+                    display flex
+
+                    .logo-container
+                        width 70px
+
+                        .logo-museeks
+                            display block
+                            width 60px
+
+                    .titles-container
+                        width calc(100% - 70px)
+
+                .header-links
+
+                    a
+                        display inline-block
+                        vertical-align middle
+                        margin-left 15px
+
+    .main-content
+        margin-top: 50px;
 
     .heart
         color #C70000
@@ -60,13 +87,6 @@ body
     .no-margin-bottom
         margin-bottom 0
 
-    #welcome
-        margin-top 50px
-
-    #overview
-        div[class^="col-"]
-            margin-top 30px
-
     #contributors
         margin-bottom 30px
 
@@ -75,8 +95,8 @@ body
             justify-content flex-start
 
             a.contributor
-                width 80px
-                margin-right 20px
+                width 40px
+                margin-right 10px
 
                 img
                     display block
@@ -94,9 +114,8 @@ body
     .v-align-middle
         vertical-align middle
 
-    table.contact-links
-        table-layout fixed
-        margin 0 15px;
-
-        td
-            padding 2px 5px
+    a,
+    a:hover,
+    a:active,
+    a:focus
+        text-decoration none

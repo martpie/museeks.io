@@ -23,15 +23,15 @@ html
 
         link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet' integrity='sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==' crossorigin='anonymous')
         link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700' rel='stylesheet' type='text/css')
         link(href='/styles/main.css', rel='stylesheet')
         
     body
         #wrap
-            header.container
-                .row#welcome
-                    .col-sm-12
-                        .header
+            header
+                .container
+                    .header-content
+                        .header-logo
                             .logo-container
                                 img(src='/images/museeks.png' class='logo-museeks' alt='Logo' title='Logo Museeks')
                             .titles-container
@@ -39,10 +39,13 @@ html
                                     | Museeks
                                 h2.thin.no-margin-top.h4
                                     | A simple, clean and cross-platform music player
+                        .header-links
+                            a(href='https://twitter.com/MuseeksPlayer' target='_blank' title='Keep updated !') @MuseeksPlayer
+                            a(href='https://gitter.im/KeitIG/museeks' target='_blank' title='Meet us on out chatroom :)') Gitter
+                            a(href='https://github.com/KeitIG/museeks' target='_blank' title='Bugs reports, features requests and sources') Github
 
-            .container
-                .main-content
-                    block content
+            .main-content
+                block content
 
         script(src='/scripts/main.js')
         script(src='/scripts/analytics.js')
