@@ -1,63 +1,59 @@
 extend layout
 
 block content
-    
+
     .container
         .row#overview
-        
+
             .col-md-9.col-sm-8
                 img(src='/images/screenshot.png' class='screenshot' alt='Museeks screenshot')
-                
+
             .col-md-3.col-sm-4
                 h3.no-margin-top Downloads
-                
-                p 
+
+                p
                     | For the moment, only portable versions are available, installers may come in the future.
-                
-                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-darwin-x64.zip' target='_blank' class='btn btn-primary btn-block') 
+
+                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-darwin-x64.zip' target='_blank' class='btn btn-primary btn-block')
                     i(class='fa fa-apple')
                     |  v0.6.3 OSX
 
                 hr
-                
-                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-win32-ia32.zip' target='_blank' class='btn btn-primary btn-block') 
+
+                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-win32-ia32.zip' target='_blank' class='btn btn-primary btn-block')
                     i(class='fa fa-windows')
                     |  v0.6.3 Windows 32bits
-                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-win32-x64.zip' target='_blank' class='btn btn-primary btn-block') 
+                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-win32-x64.zip' target='_blank' class='btn btn-primary btn-block')
                     i(class='fa fa-windows')
                     |  v0.6.3 Windows 64bits
-                    
+
                 hr
-                
-                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-linux-ia32.zip' target='_blank' class='btn btn-primary btn-block') 
+
+                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-linux-ia32.zip' target='_blank' class='btn btn-primary btn-block')
                     i(class='fa fa-linux')
                     |  v0.6.3 Linux 32bits
-                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-linux-x64.zip' target='_blank' class='btn btn-primary btn-block') 
+                a(href='https://github.com/KeitIG/museeks/releases/download/0.6.3/museeks-linux-x64.zip' target='_blank' class='btn btn-primary btn-block')
                     i(class='fa fa-linux')
                     |  v0.6.3 Linux 64bits
 
                 hr
-                
+
                 .text-center
-                
+
                     a(href='https://github.com/KeitIG/museeks/releases' target='_blank') Releases notes
                     =' / '
                     a(href='https://github.com/KeitIG/museeks' target='_blank') Sources
 
-        .row#contributors 
-        
-            .col-sm-12
-                h3 Contributors    
+        .row#contributors
+
+            .col-sm-12.text-center
                 p
                     | made with
                     =' '
                     span(class='heart') ♥
                     |  and JavaScript by
                     =' '
-                    a(href='http://pierrevanmart.com' target='_blank') this guy
-                    |  and a bunch of great contributors:
-            
-            .col-sm-12.contributors-list
-                each contributor in contributors
-                    a.contributor.text-center(href=contributor.html_url title=contributor.login)
-                        img.avatar(src=contributor.avatar_url alt=contributor.login)
+                    a(href='http://pierrevanmart.com' target='_blank') me
+                    |  and a bunch of
+                    a(href='https://github.com/KeitIG/museeks/graphs/contributors')  great guys
+                    | .
