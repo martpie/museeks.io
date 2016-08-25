@@ -60,4 +60,4 @@ block content
             .col-sm-12.contributors-list
                 each contributor in contributors
                     a.contributor.text-center(href=contributor.html_url title=contributor.login)
-                        img.avatar(src=contributor.avatar_url)
+                        img.avatar(src=contributor.avatar_url alt=contributor.login)
