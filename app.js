@@ -14,7 +14,7 @@ var app = express();
 
 // Views and view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // Stylus
 app.use(stylus.middleware({
