@@ -2,7 +2,6 @@
 const express  = require('express'),
     stylus   = require('stylus'),
     path     = require('path'),
-    https    = require('https'),
     compress = require('compression'),
     force    = require('forcedomain'),
     minify   = require('express-minify');
