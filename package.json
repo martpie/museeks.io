@@ -22,9 +22,9 @@
     "express": "^4.14.0",
     "express-minify": "^0.2.0",
     "forcedomain": "^0.7.0",
-    "forever": "^0.15.2",
     "jade": "^1.11.0",
-    "pug": "^2.0.0-beta5",
+    "pm2": "^2.0.18",
+    "pug": "^2.0.0-beta6",
     "stylus": "^0.54.5"
   }
 }

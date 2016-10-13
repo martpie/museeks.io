@@ -1,5 +1,5 @@
 // Modules
-var express  = require('express'),
+const express  = require('express'),
     stylus   = require('stylus'),
     path     = require('path'),
     https    = require('https'),
@@ -10,7 +10,7 @@ var express  = require('express'),
 
 
 // The app
-var app = express();
+const app = express();
 
 // Views and view engine
 app.set('views', path.join(__dirname, 'src', 'views'));
@@ -68,4 +68,4 @@ app.get('/', function (req, res) {
     );
 })
 
-app.listen(80);
+app.listen(3000);
