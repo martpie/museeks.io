@@ -4,8 +4,7 @@
   "description": "http://museeks.io",
   "main": "server.js",
   "scripts": {
-    "start": "forever start --watch app.js",
-    "stop": "forever stop app.js"
+    "compile": "gulp"
   },
   "repository": {
     "type": "git",
@@ -18,13 +17,13 @@
   },
   "homepage": "https://github.com/KeitIG/museeks.io#readme",
   "dependencies": {
-    "compression": "^1.6.2",
-    "express": "^4.14.0",
-    "express-minify": "^0.2.0",
-    "forcedomain": "^0.7.0",
-    "jade": "^1.11.0",
-    "pm2": "^2.0.18",
-    "pug": "^2.0.0-beta6",
-    "stylus": "^0.54.5"
+    "gulp": "^3.9.1",
+    "gulp-pug": "^3.1.0",
+    "gulp-stylus": "^2.6.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "eslint": "^3.17.1",
+    "gulp": "^3.9.1"
   }
 }
