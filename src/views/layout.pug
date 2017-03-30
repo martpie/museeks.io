@@ -58,7 +58,7 @@ html(lang='en')
             ga('create', 'UA-46869313-4', 'auto');
             ga('send', 'pageview');
 
-        script
+        script.
             window._Museeks = {
 
                 checkDownloadsCount: function() {
@@ -70,9 +70,8 @@ html(lang='en')
                         var releases = e.currentTarget.response;
                         var count = 0;
 
-                        releases.forEach((elem) => {
-
-                            elem.assets.forEach((asset) => {
+                        releases.forEach(function(elem) {
+                            elem.assets.forEach(function(asset) {
                                 count += asset['download_count'];
                             })
                         });
@@ -84,4 +83,4 @@ html(lang='en')
                     oReq.responseType = 'json';
                     oReq.send();
                 }
-            }
+            };
