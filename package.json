@@ -1,10 +1,11 @@
 {
   "name": "museeks.io",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "http://museeks.io",
   "main": "server.js",
   "scripts": {
-    "compile": "gulp"
+    "compile": "gulp",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",

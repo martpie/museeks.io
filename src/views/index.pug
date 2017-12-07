@@ -3,16 +3,15 @@ extend layout
 block content
 
   .container
-    .row#overview
+    #overview.row.d-flex.align-items-center
 
-      .col-md-9.col-sm-8
+      .col-md-8.col-lg-9.mb-3
         img(src='/images/screenshot.png' class='screenshot' alt='Museeks screenshot')
 
-      .col-md-3.col-sm-4
-        h3.no-margin-top Downloads
+      .col-md-4.col-lg-3.text-center.mb-3
 
         p
-          | For the moment, only portable versions are available, installers may come in the future.
+          | For the moment, only portable versions are available, installers are coming soon.
 
         a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-darwin-x64.zip' target='_blank' class='btn btn-primary btn-block')
           i(class='fa fa-apple')
@@ -22,29 +21,28 @@ block content
 
         a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-win32-ia32.zip' target='_blank' class='btn btn-primary btn-block')
           i(class='fa fa-windows')
-          |  v0.8.1 Windows 32bits
+          |  v0.8.1 Windows x86
         a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-win32-x64.zip' target='_blank' class='btn btn-primary btn-block')
           i(class='fa fa-windows')
-          |  v0.8.1 Windows 64bits
+          |  v0.8.1 Windows x64
 
         hr
 
         a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-linux-ia32.zip' target='_blank' class='btn btn-primary btn-block')
           i(class='fa fa-linux')
-          |  v0.8.1 Linux 32bits
+          |  v0.8.1 Linux x86
         a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-linux-x64.zip' target='_blank' class='btn btn-primary btn-block')
           i(class='fa fa-linux')
-          |  v0.8.1 Linux 64bits
+          |  v0.8.1 Linux x64
 
         hr
 
-        .text-center
-
+        div
           a(href='https://github.com/KeitIG/museeks/releases' target='_blank') Releases notes
           =' / '
           a(href='https://github.com/KeitIG/museeks' target='_blank') Sources
 
-    .row#contributors
+    #contributors.row.mb-3
 
       .col-sm-12.text-center
         p

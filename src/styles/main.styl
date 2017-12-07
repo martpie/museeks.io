@@ -1,123 +1,117 @@
-/*!
- * bootstrap-sharper v0.1 (http://github.com/KeitIG/bootstrap-sharper)
- * Copyright 2015 Pierre de la Martinière
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-.alert,.badge,.breadcrumb,.btn,.btn-group-vertical > .btn:first-child:not(:last-child),.btn-group-vertical > .btn:last-child:not(:first-child),.btn-lg,.btn-sm,.btn-xs,.container .jumbotron,.container-fluid .jumbotron,.dropdown-menu,.form-control,.img-thumbnail,.thumbnail,.input-group-addon,.label,.list-group-item:first-child,.list-group-item:last-child,.nav-pills > li > a,.nav-tabs > li > a,.navbar,.navbar-toggle,.pager li > a,.pager li > span,.pagination,.pagination > li:first-child > a,.pagination > li:first-child > span,.pagination > li:last-child > a,.pagination > li:last-child > span,.panel-group > .panel,.panel,.panel-heading,.popover,.progress,.tooltip-inner,.well,.well-lg,.well-sm,.modal-content
-  border-radius 0
-
-
-
 body
   font-family "Open Sans"
-  background-color #EEE
   color #555
 
-  header
-    background-color #e6e6e6
-    border-bottom solid 1px #cecece
-    padding 30px 0
+header
+  padding 30px 0
 
+  .container
 
-    .container
-
-      .header-content
-        display flex
-        flex-direction column
-        align-items center
-        justify-content space-between
-
-        @media screen and (min-width: 768px)
-          flex-direction row
-
-        .header-logo
-          display flex
-
-          .logo-container
-            width 70px
-
-            .logo-museeks
-              display block
-              width 60px
-
-          .titles-container
-            width calc(100% - 70px)
-
-        .header-links
-
-          a
-            display inline-block
-            vertical-align middle
-            margin-left 15px
-
-  .main-content
-    margin-top: 50px;
-
-  .heart
-    color #C70000
-
-  .screenshot
-    display block
-    max-width 100%
-
-  .btn-primary
-    border 0
-    background-color #499cd5
-    transition all .2s ease-in-out
-    box-shadow none
-
-    &:hover,
-    &:active,
-    &:focus
-      box-shadow none
-      background-color #499cd5
-
-    &:focus:active
-      box-shadow none
-      background-color #4383AF
-
-  hr
-    margin-top 8px
-    margin-bottom 8px
-    border-top 1px solid #DADADA
-
-  .no-margin-top
-    margin-top 0
-
-  .no-margin-bottom
-    margin-bottom 0
-
-  #contributors
-    margin-top: 30px
-    margin-bottom 30px
-
-    .contributors-list
+    .header-content
       display flex
-      justify-content flex-start
+      align-items center
+      justify-content space-between
 
-      a.contributor
-        width 40px
-        margin-right 10px
+    @media screen and (min-width: 768px)
+      flex-direction row
 
-        img
+    .header-logo
+      display flex
+
+      .logo-container
+        width 70px
+
+        .logo-museeks
           display block
-          width 100%;
-          height auto
-          border-radius 50px
+          width 54px
 
-  footer
-    margin-top 30px
-    text-align center
+      .titles-container
+        width calc(100% - 70px)
 
-  .thin
-    font-weight 100
+    .header-links
 
-  .v-align-middle
-    vertical-align middle
+      a
+        display inline-block
+        vertical-align middle
+        margin-left 15px
+        font-size 24px
+        color #555
 
-  a,
-  a:hover,
-  a:active,
-  a:focus
-    cursor pointer
-    text-decoration none
+        &:hover
+          color #555
+          text-decoration none
+
+.main-content
+  margin-top: 20px;
+
+.heart
+  color #C70000
+
+.screenshot
+  display block
+  max-width 100%
+
+.btn-primary
+  border 0
+  background-color #459CE7
+  transition all .2s ease-in-out
+  box-shadow none
+  border-radius 2px
+
+  &:hover,
+  &:active
+    background-color #459CE7
+    color white
+
+  &:focus
+    background-color darken(#459CE7, 10%)
+    color white
+
+  &:focus:active
+    background-color darken(#459CE7, 20%)
+    color white
+
+hr
+  margin-top 8px
+  margin-bottom 8px
+  border-top 1px solid #DADADA
+
+.no-margin-top
+  margin-top 0
+
+.no-margin-bottom
+  margin-bottom 0
+
+#contributors
+
+  .contributors-list
+    display flex
+    justify-content flex-start
+
+    a.contributor
+      width 40px
+      margin-right 10px
+
+      img
+        display block
+        width 100%;
+        height auto
+        border-radius 50px
+
+footer
+  margin-top 30px
+  text-align center
+
+.thin
+  font-weight 100
+
+.v-align-middle
+  vertical-align middle
+
+a
+  color #38A6DE
+
+a:hover,
+a:active,
+a:focus
+  color darken(#38A6DE, 30%)
