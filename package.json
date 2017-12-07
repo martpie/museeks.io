@@ -22,8 +22,7 @@
     "gulp-stylus": "^2.6.0"
   },
   "devDependencies": {
-    "del": "^2.2.2",
-    "eslint": "^3.17.1",
+    "del": "^3.0.0",
     "gulp": "^3.9.1"
   }
 }
