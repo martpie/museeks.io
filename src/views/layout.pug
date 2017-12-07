@@ -1,86 +1,86 @@
 doctype
 html(lang='en')
-    head
-        title Museeks - A simple, clean and cross-platform music player
+  head
+    title Museeks - A simple, clean and cross-platform music player
 
-        meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
 
-        meta(charset='UTF-8')
+    meta(charset='UTF-8')
 
-        meta(name='description' content='Museeks is a simple, clean and cross-platform music player, written with hipsters techs')
-        meta(name='keywords' content='museeks, music, music player, simple, free, minimalistic, lightweight, open-source, cross-platform')
-        meta(name='author' content='Pierre de la Martinière')
-        meta(name='robots' content='index, follow')
+    meta(name='description' content='Museeks is a simple, clean and cross-platform music player, written with hipsters techs')
+    meta(name='keywords' content='museeks, music, music player, simple, free, minimalistic, lightweight, open-source, cross-platform')
+    meta(name='author' content='Pierre de la Martinière')
+    meta(name='robots' content='index, follow')
 
-        meta(property='og:title' content='Museeks - A simple, clean and cross-platform music player')
-        meta(property='og:description' content='Museeks is a simple, clean and cross-platform music player, written with hipsters techs.')
-        meta(property='og:type' content='website')
-        meta(property='og:url' content='http://museeks.io')
-        meta(property='og:image' content='http://museeks.io/images/screenshot.png')
+    meta(property='og:title' content='Museeks - A simple, clean and cross-platform music player')
+    meta(property='og:description' content='Museeks is a simple, clean and cross-platform music player, written with hipsters techs.')
+    meta(property='og:type' content='website')
+    meta(property='og:url' content='http://museeks.io')
+    meta(property='og:image' content='http://museeks.io/images/screenshot.png')
 
-        link(rel='canonical' href='http://museeks.io')
-        link(rel='publisher' href='https://plus.google.com/u/0/+PierrevanMart')
+    link(rel='canonical' href='http://museeks.io')
+    link(rel='publisher' href='https://plus.google.com/u/0/+PierrevanMart')
 
-        link(rel='icon' type='image/png' href='/images/museeks.png')
+    link(rel='icon' type='image/png' href='/images/museeks.png')
 
-        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet' integrity='sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==' crossorigin='anonymous')
-        link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet')
-        link(href='https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700' rel='stylesheet' type='text/css')
-        link(href='/styles/main.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', rel='stylesheet' integrity='sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==' crossorigin='anonymous')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700' rel='stylesheet' type='text/css')
+    link(href='/styles/main.css', rel='stylesheet')
 
-    body
-        #wrap
-            header
-                .container
-                    .header-content
-                        .header-logo
-                            .logo-container
-                                img(src='/images/museeks.png' class='logo-museeks' alt='Logo' title='Logo Museeks')
-                            .titles-container
-                                h1.thin.no-margin-bottom.no-margin-top
-                                    | Museeks
-                                h2.thin.no-margin-top.h4
-                                    | A simple, clean and cross-platform music player
-                        .header-links
-                            a(href='https://twitter.com/MuseeksPlayer' target='_blank' title='Keep updated !') @MuseeksPlayer
-                            a(href='https://gitter.im/KeitIG/museeks' target='_blank' title='Meet us on out chatroom :)') Gitter
-                            a(href='https://github.com/KeitIG/museeks' target='_blank' title='Bugs reports, features requests and sources') Github
+  body
+    #wrap
+      header
+        .container
+          .header-content
+            .header-logo
+              .logo-container
+                img(src='/images/museeks.png' class='logo-museeks' alt='Logo' title='Logo Museeks')
+              .titles-container
+                h1.thin.no-margin-bottom.no-margin-top
+                  | Museeks
+                h2.thin.no-margin-top.h4
+                  | A simple, clean and cross-platform music player
+            .header-links
+              a(href='https://twitter.com/MuseeksPlayer' target='_blank' title='Keep updated !') @MuseeksPlayer
+              a(href='https://gitter.im/KeitIG/museeks' target='_blank' title='Meet us on out chatroom :)') Gitter
+              a(href='https://github.com/KeitIG/museeks' target='_blank' title='Bugs reports, features requests and sources') Github
 
-            .main-content
-                block content
+      .main-content
+        block content
 
-        script.
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-46869313-4', 'auto');
-            ga('send', 'pageview');
+      ga('create', 'UA-46869313-4', 'auto');
+      ga('send', 'pageview');
 
-        script.
-            window._Museeks = {
+    script.
+      window._Museeks = {
 
-                checkDownloadsCount: function() {
+        checkDownloadsCount: function() {
 
-                    var oReq = new XMLHttpRequest();
+          var oReq = new XMLHttpRequest();
 
-                    oReq.onload = function (e) {
+          oReq.onload = function (e) {
 
-                        var releases = e.currentTarget.response;
-                        var count = 0;
+            var releases = e.currentTarget.response;
+            var count = 0;
 
-                        releases.forEach(function(elem) {
-                            elem.assets.forEach(function(asset) {
-                                count += asset['download_count'];
-                            })
-                        });
+            releases.forEach(function(elem) {
+              elem.assets.forEach(function(asset) {
+                count += asset['download_count'];
+              })
+            });
 
-                        console.info('Downloads count: ' + count);
-                    };
+            console.info('Downloads count: ' + count);
+          };
 
-                    oReq.open('GET', 'https://api.github.com/repos/KeitIG/museeks/releases', true);
-                    oReq.responseType = 'json';
-                    oReq.send();
-                }
-            };
+          oReq.open('GET', 'https://api.github.com/repos/KeitIG/museeks/releases', true);
+          oReq.responseType = 'json';
+          oReq.send();
+        }
+      };
