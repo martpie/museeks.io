@@ -8,40 +8,48 @@ block content
 
     #downloads.mb-5
       
-      h2.mb-5.text-center 
+      h2.text-center 
         | Downloads 
-        small 0.9
       
+      .text-muted.text-center.mb-5
+        small latest version: 0.9
       
       .row.justify-content-center.mb-3
 
-        .col-lg-3
+        .col-lg-4
           .h3.mb-3.text-center  
             i(class='fa fa-apple')
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks.dmg')
-            |  macOS
+          .d-flex
+            a.download.expand.btn.btn-primary.btn-lg(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks.dmg')
+              |  macOS
 
-        .col-lg-3
+        .col-lg-4
           .h3.mb-3.text-center 
             i(class='fa fa-windows')
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/MuseeksSetup.exe')
-            |  Windows
+          .d-flex
+            a.download.expand.btn.btn-primary.btn-lg(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/MuseeksSetup.exe')
+              |  Windows
 
-        .col-lg-3
+        .col-lg-4
           .h3.mb-3.text-center
             i(class='fa fa-linux')
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.AppImage')
-            |  AppImage 64bits
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.AppImage')
-            |  AppImage 32bits
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-amd64.deb')
-            |  .deb 64bits
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.deb')
-            |  .deb 32bits
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.rpm')
-            |  .rpm 64bits
-          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i686.rpm')
-            |  .rpm 32bits
+          .d-flex.mb-2
+            a.download.expand.btn.btn-primary.btn-lg.mr-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.AppImage')
+              | AppImage 64bits
+            a.download.btn.btn-primary.btn-lg(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.AppImage')
+              | 32bits
+            
+          .d-flex.mb-2
+            a.download.expand.btn.btn-primary.btn-lg.mr-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-amd64.deb')
+              | .deb 64bits
+            a.download.btn.btn-primary.btn-lg(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.deb')
+              | 32bits
+        
+          .d-flex.mb-2
+            a.download.expand.btn.btn-primary.btn-lg.mr-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.rpm')
+              | .rpm 64bits
+            a.download.btn.btn-primary.btn-lg(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i686.rpm')
+              | 32bits
             
     #links.mb-5
       .text-center
