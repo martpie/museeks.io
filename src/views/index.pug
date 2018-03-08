@@ -3,56 +3,64 @@ extend layout
 block content
 
   .container
-    #overview.row.d-flex.align-items-center
+    #screenshot.d-flex.justify-content-center.align-items-center.mb-3
+      img.screenshot(src='/images/screenshot.png' alt='Museeks screenshot')
 
-      .col-md-8.col-lg-9.mb-3
-        img(src='/images/screenshot.png' class='screenshot' alt='Museeks screenshot')
+    #downloads.mb-5
+      
+      h2.mb-5.text-center 
+        | Downloads 
+        small 0.9
+      
+      
+      .row.justify-content-center.mb-3
 
-      .col-md-4.col-lg-3.text-center.mb-3
+        .col-lg-3
+          .h3.mb-3.text-center  
+            i(class='fa fa-apple')
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks.dmg')
+            |  macOS
 
-        p
-          | For the moment, only portable versions are available, installers are coming soon.
+        .col-lg-3
+          .h3.mb-3.text-center 
+            i(class='fa fa-windows')
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/MuseeksSetup.exe')
+            |  Windows
 
-        a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-darwin-x64.zip' target='_blank' class='btn btn-primary btn-block')
-          i(class='fa fa-apple')
-          |  v0.8.1 macOS
+        .col-lg-3
+          .h3.mb-3.text-center
+            i(class='fa fa-linux')
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.AppImage')
+            |  AppImage 64bits
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.AppImage')
+            |  AppImage 32bits
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-amd64.deb')
+            |  .deb 64bits
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i386.deb')
+            |  .deb 32bits
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-x86_64.rpm')
+            |  .rpm 64bits
+          a.btn.btn-primary.btn-lg.btn-block.mb-2(href='https://github.com/KeitIG/museeks/releases/download/0.9.0/museeks-i686.rpm')
+            |  .rpm 32bits
+            
+    #links.mb-5
+      .text-center
+        a(href='https://twitter.com/MuseeksPlayer' title='Keep updated !' class='fa fa-twitter')
+        a(href='https://gitter.im/KeitIG/museeks' title='Meet us on out chatroom :)' class='fa fa-comments')
+        a(href='https://github.com/KeitIG/museeks' title='Bugs reports, features requests and sources' class='fa fa-github')
 
-        hr
-
-        a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-win32-ia32.zip' target='_blank' class='btn btn-primary btn-block')
-          i(class='fa fa-windows')
-          |  v0.8.1 Windows x86
-        a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-win32-x64.zip' target='_blank' class='btn btn-primary btn-block')
-          i(class='fa fa-windows')
-          |  v0.8.1 Windows x64
-
-        hr
-
-        a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-linux-ia32.zip' target='_blank' class='btn btn-primary btn-block')
-          i(class='fa fa-linux')
-          |  v0.8.1 Linux x86
-        a(href='https://github.com/KeitIG/museeks/releases/download/0.8.1/museeks-linux-x64.zip' target='_blank' class='btn btn-primary btn-block')
-          i(class='fa fa-linux')
-          |  v0.8.1 Linux x64
-
-        hr
-
-        div
-          a(href='https://github.com/KeitIG/museeks/releases' target='_blank') Releases notes
-          =' / '
-          a(href='https://github.com/KeitIG/museeks' target='_blank') Sources
-
-    #contributors.row.mb-3
+    #contributors.row.mb-5
 
       .col-sm-12.text-center
         p
-          | made with
-          =' '
-          span(class='heart') ♥
-          |  by
-          =' '
-          a(href='http://pierrevanmart.com' target='_blank') @KeitIG
-          |  and a bunch of
-          =' '
-          a(href='https://github.com/KeitIG/museeks/graphs/contributors' target='_blank') great guys
-          | .
+          small.text-muted
+            | made with
+            =' '
+            span(class='heart') ♥
+            |  by
+            =' '
+            a(href='http://pierrevanmart.com' target='_blank') @KeitIG
+            |  and
+            =' '
+            a(href='https://github.com/KeitIG/museeks/graphs/contributors' target='_blank') awesome people
+            | .
