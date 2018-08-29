@@ -10,4 +10,4 @@ http://museeks.io
 
 - Fork or download sources
 - `npm install`
-- `node app.js`
+- `npm run compile`
