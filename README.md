@@ -1,5 +1,5 @@
 # museeks.io
-http://museeks.io
+https://museeks.io
 
 ## Requirements
 
