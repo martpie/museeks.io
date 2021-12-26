@@ -1,0 +1,8 @@
+.buttonGroup {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.buttonGroup > *:not(:last-child) {
+  margin-right: 8px;
+}

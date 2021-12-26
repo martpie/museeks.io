@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+@media (min-width: 900px) {
+  .container {
+    flex-direction: row-reverse;
+  }
+}
+
+.screenshot {
+  flex: 2;
+  min-height: 400px;
+  background-image: url('/screenshot.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@media (min-width: 900px) {
+  .screenshot {
+    background-position: left center;
+    background-size: 1057px 703px;
+  }
+}
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 3;
+}
+
+.downloads {
+  width: 780px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.downloadsTitle {
+  text-align: center;
+  font-weight: normal;
+}
+
+.downloadsMetas {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.allDownloads {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .allDownloads {
+    flex-direction: row;
+  }
+}
+
+.downloadsLinks {
+  flex: 1 0 0;
+  min-width: 0;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 900px) {
+  .downloadsLinks:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.osIcon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.heart {
+  color: var(--heart);
+}
+
+.links {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.linksIcon {
+  text-decoration: none;
+  color: inherit;
+}
+
+.linksIcon:not(:last-child) {
+  margin-right: 12px;
+}
+
+.madeBy {
+  text-align: center;
+}
+
+.textMuted {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
