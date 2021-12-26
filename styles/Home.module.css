@@ -11,6 +11,7 @@
 }
 
 .screenshot {
+  max-width: 500px;
   flex: 2;
   min-height: 400px;
   background-image: url('/screenshot.png');
