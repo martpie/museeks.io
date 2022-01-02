@@ -3,11 +3,11 @@ https://museeks.io
 
 ## Requirements
 
-- node v4.x
-- npm
+- node v16.x
+- yarn v1
 
 ## Run it
 
 - Fork or download sources
-- `npm install`
-- `npm run compile`
+- `yarn`
+- `yarn build` / `yarn dev`
