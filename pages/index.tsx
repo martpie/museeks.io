@@ -52,7 +52,7 @@ const Home: NextPage = () => {
             <p className={`${styles.downloadsMetas} ${styles.textMuted}`}>
               latest version: {VERSION} (
               <Link
-                href='https://github.com/martpie/museeks/releases/tag/0.12.0'
+                href={`https://github.com/martpie/museeks/releases/tag/${version}`
                 openInNewTab
               >
                 changes
