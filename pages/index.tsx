@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                       href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
                       title='macOS M1'
                   >
-                    m1
+                    M1
                   </ButtonLink>
                 </ButtonGroup>
               </div>
