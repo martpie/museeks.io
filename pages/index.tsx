@@ -7,7 +7,7 @@ import Link from '../components/Link';
 import styles from '../styles/Home.module.css';
 
 const URL_PREFIX = 'https://github.com/martpie/museeks/releases/download/';
-const VERSION = '0.12.0';
+const VERSION = '0.13.0';
 
 const Home: NextPage = () => {
   return (
@@ -70,13 +70,21 @@ const Home: NextPage = () => {
               {/* MAC */}
               <div className={styles.downloadsLinks}>
                 <i className={`${styles.osIcon} fa fa-apple`} />
-                <ButtonLink
-                  href={`${URL_PREFIX}${VERSION}/museeks.dmg`}
-                  use='primary'
-                  expand
-                >
-                  macOS
-                </ButtonLink>
+                <ButtonGroup>
+                  <ButtonLink
+                    href={`${URL_PREFIX}${VERSION}/museeks-x64.dmg`}
+                    use='primary'
+                    expand
+                  >
+                    macOS
+                  </ButtonLink>
+                  <ButtonLink
+                      href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
+                      title='macOS M1'
+                  >
+                    m1
+                  </ButtonLink>
+                </ButtonGroup>
               </div>
 
               {/* WINDOWS */}
