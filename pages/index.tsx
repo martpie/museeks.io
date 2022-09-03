@@ -7,7 +7,7 @@ import Link from '../components/Link';
 import styles from '../styles/Home.module.css';
 
 const URL_PREFIX = 'https://github.com/martpie/museeks/releases/download/';
-const VERSION = '0.13.0';
+const VERSION = '0.13.1';
 
 const Home: NextPage = () => {
   return (
