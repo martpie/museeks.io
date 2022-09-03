@@ -1,0 +1,31 @@
+---
+export interface Props {
+  href: string;
+  openInNewTab?: boolean;
+  title?: string;
+  classes?: string;
+}
+
+const { href, openInNewTab, title, classes } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={["link", classes]}
+  target={openInNewTab ? "_blank" : undefined}
+  rel={openInNewTab ? "noreferrer" : undefined}
+  title={title}
+>
+  <slot />
+</a>
+
+<style>
+  .link {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    color: var(--link-color-hover);
+  }
+</style>

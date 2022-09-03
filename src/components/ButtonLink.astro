@@ -1,0 +1,54 @@
+---
+export interface Props {
+  href: string;
+  children: string;
+  title?: string;
+  use?: "secondary" | "primary";
+  expand?: boolean;
+}
+
+const { use = "secondary", expand, children, ...rest } = Astro.props;
+---
+
+<a
+  class:list={[
+    "buttonLink",
+    { primary: use === "primary", expand: expand === true },
+  ]}
+  {...rest}
+>
+  <slot />
+</a>
+
+<style>
+  .buttonLink {
+    display: block;
+    padding: 8px 12px;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(244, 244, 244);
+    border: solid 1px rgb(222, 222, 222);
+    border-radius: 3px;
+    color: inherit;
+    transition: opacity ease-in-out 0.25s;
+  }
+
+  .buttonLink:hover {
+    opacity: 0.5;
+  }
+
+  .primary {
+    color: white;
+    background-color: var(--main-color);
+    border: solid 1px var(--main-color-darker);
+  }
+
+  .primary:hover {
+    opacity: 0.8;
+  }
+
+  .expand {
+    flex: 1;
+  }
+</style>

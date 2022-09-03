@@ -1,0 +1,289 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import ButtonLink from "../components/ButtonLink.astro";
+import Link from "../components/Link.astro";
+import ButtonGroup from "../components/ButtonGroup.astro";
+
+const URL_PREFIX = "https://github.com/martpie/museeks/releases/download/";
+const VERSION = "0.13.1";
+---
+
+<Layout
+  title="Museeks - A simple, clean and cross-platform music player"
+  description="Museeks is a simple, clean and cross-platform music player, focusing on simple features, well crafted."
+>
+  <div class="container">
+    {/* SCREENSHOT */}
+    <div class="screenshot"></div>
+
+    {/* MAIN (left content) */}
+    <main class="main">
+      <div class="downloads">
+        <h2 class="downloadsTitle">
+          A simple, clean and cross-platform music player
+        </h2>
+
+        <p class="downloadsMetas textMuted">
+          latest version: {VERSION}
+          |
+          <Link
+            href={`https://github.com/martpie/museeks/releases/tag/${VERSION}`}
+            openInNewTab>changes</Link
+          >
+          |
+          <Link href="https://github.com/martpie/museeks/releases" openInNewTab>
+            other releases
+          </Link>
+        </p>
+
+        <div class="allDownloads">
+          {/* MAC */}
+          <div class="downloadsLinks">
+            <i class="osIcon fa fa-apple"></i>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
+                use="primary"
+                expand
+              >
+                macOS M1
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-x64.dmg`}
+                title="macOS Intel"
+              >
+                Intel
+              </ButtonLink>
+            </ButtonGroup>
+          </div>
+
+          {/* WINDOWS */}
+          <div class="downloadsLinks">
+            <i class="osIcon fa fa-windows"></i>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-x64-setup.exe`}
+                use="primary"
+                expand
+              >
+                Windows 64bits
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-ia32-setup.exe`}
+                title="AppImage 32bits"
+              >
+                32bits
+              </ButtonLink>
+            </ButtonGroup>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-x64-portable.exe`}
+                use="primary"
+                expand
+              >
+                Portable 64bits
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-ia32-portable.exe`}
+                title="AppImage 32bits"
+              >
+                32bits
+              </ButtonLink>
+            </ButtonGroup>
+          </div>
+
+          {/* LINUX */}
+          <div class="downloadsLinks">
+            <i class="osIcon fa fa-linux"></i>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-x86_64.AppImage`}
+                use="primary"
+                expand
+              >
+                AppImage 64bits
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-i386.AppImage`}
+                title="AppImage 32bits"
+              >
+                32bits
+              </ButtonLink>
+            </ButtonGroup>
+
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-amd64.deb`}
+                use="primary"
+                expand
+              >
+                .deb 64bits
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-i386.deb`}
+                title=".deb 32bits"
+              >
+                32bits
+              </ButtonLink>
+            </ButtonGroup>
+
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-x86_64.rpm`}
+                use="primary"
+                expand
+              >
+                .rpm 64bits
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-i686.rpm`}
+                title=".rpm 32bits"
+              >
+                32bits
+              </ButtonLink>
+            </ButtonGroup>
+          </div>
+        </div>
+
+        {/* FOOTER */}
+        <footer class="footer">
+          <div class="links">
+            <a
+              href="https://twitter.com/museeks"
+              title="Keep updated !"
+              class="linksIcon fa fa-twitter"></a>
+            <a
+              href="https://github.com/martpie/museeks"
+              title="Bugs reports, features requests and sources"
+              class="linksIcon fa fa-github"></a>
+          </div>
+          <div class="madeBy textMuted">
+            made with <span class="heart">♥</span> by{" "}
+            <Link href="https://martpie.io" openInNewTab>@martpie</Link>{" "}
+            and{" "}
+            <Link
+              href="https://github.com/martpie/museeks/graphs/contributors"
+              openInNewTab
+              >awesome people
+            </Link>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 900px) {
+    .container {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .screenshot {
+    max-width: 500px;
+    flex: 2;
+    min-height: 400px;
+    background-image: url("/screenshot.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  @media (min-width: 900px) {
+    .screenshot {
+      background-position: left center;
+      background-size: 1057px 703px;
+    }
+  }
+
+  .main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 3;
+  }
+
+  .downloads {
+    width: 780px;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .downloadsTitle {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  .downloadsMetas {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .allDownloads {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 900px) {
+    .allDownloads {
+      flex-direction: row;
+    }
+  }
+
+  .downloadsLinks {
+    flex: 1 0 0;
+    min-width: 0;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 900px) {
+    .downloadsLinks:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .osIcon {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .heart {
+    color: var(--heart);
+  }
+
+  .links {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+
+  .linksIcon {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .linksIcon:not(:last-child) {
+    margin-right: 12px;
+  }
+
+  .madeBy {
+    text-align: center;
+  }
+
+  .textMuted {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+</style>

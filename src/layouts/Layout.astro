@@ -1,0 +1,68 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{title}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/museeks.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Pierre de la Martinière" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://museeks.io" />
+    <meta
+      property="og:image"
+      content="https://museeks.io/images/screenshot.png"
+    />
+
+    <link rel="canonical" href="https://museeks.io" />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <slot />
+    <style>
+      :root {
+        --main-color: #459ce7;
+        --main-color-darker: #498ed8;
+
+        --link-color: #459ce7;
+        --link-color-hover: #52afff;
+
+        --text-muted: #777;
+
+        --heart: #c70000;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        /* overflow-x: hidden; temporary */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </body>
+</html>

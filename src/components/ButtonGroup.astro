@@ -1,0 +1,12 @@
+<div class="buttonGroup"><slot /></div>
+
+<style>
+  .buttonGroup {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .buttonGroup > :global(*:not(:last-child)) {
+    margin-right: 8px;
+  }
+</style>
