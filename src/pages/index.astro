@@ -15,7 +15,13 @@ const VERSION = "0.13.1";
 >
   <div class="container">
     {/* SCREENSHOT */}
-    <div class="screenshot"></div>
+    <div class="screenshotWrapper">
+      <img
+        class="screenshot"
+        src="./screenshot.png"
+        alt="A screenshot of Museeks"
+      />
+    </div>
 
     {/* MAIN (left content) */}
     <main class="main">
@@ -29,8 +35,10 @@ const VERSION = "0.13.1";
           |
           <Link
             href={`https://github.com/martpie/museeks/releases/tag/${VERSION}`}
-            openInNewTab>changes</Link
+            openInNewTab
           >
+            changes
+          </Link>
           |
           <Link href="https://github.com/martpie/museeks/releases" openInNewTab>
             other releases
@@ -165,7 +173,8 @@ const VERSION = "0.13.1";
             <Link
               href="https://github.com/martpie/museeks/graphs/contributors"
               openInNewTab
-              >awesome people
+            >
+              awesome people
             </Link>
           </div>
         </footer>
@@ -175,6 +184,10 @@ const VERSION = "0.13.1";
 </Layout>
 
 <style>
+  body {
+    overflow-x: hidden;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -188,19 +201,41 @@ const VERSION = "0.13.1";
   }
 
   .screenshot {
-    max-width: 500px;
-    flex: 2;
-    min-height: 400px;
-    background-image: url("/screenshot.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    width: 1057px; /* 703px height */
+    max-width: 100%;
+    height: auto;
+  }
+
+  .screenshotWrapper {
+    position: relative;
   }
 
   @media (min-width: 900px) {
+    .screenshotWrapper {
+      flex: 1.5 0 auto;
+      max-width: 700px;
+    }
+
     .screenshot {
-      background-position: left center;
-      background-size: 1057px 703px;
+      position: absolute;
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      min-width: 700px;
+      transition: transform ease-in-out 0.2s;
+    }
+
+    .screenshot:hover {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .screenshot {
+      min-width: 1057px;
     }
   }
 
@@ -220,6 +255,7 @@ const VERSION = "0.13.1";
   }
 
   .downloadsTitle {
+    margin-top: 0;
     text-align: center;
     font-weight: normal;
   }
