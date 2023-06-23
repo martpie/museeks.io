@@ -199,10 +199,14 @@ const VERSION = "0.13.1";
     padding: 0 15px;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .container {
       flex-direction: row-reverse;
     }
+  }
+
+  .screenshotWrapper {
+    position: relative;
   }
 
   .screenshot {
@@ -211,11 +215,7 @@ const VERSION = "0.13.1";
     height: auto;
   }
 
-  .screenshotWrapper {
-    position: relative;
-  }
-
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .screenshotWrapper {
       flex: 1.5 0 auto;
       max-width: 700px;
@@ -226,21 +226,22 @@ const VERSION = "0.13.1";
       margin-left: auto;
       margin-top: auto;
       margin-bottom: auto;
-      left: 0;
+      right: 0;
       top: 0;
       bottom: 0;
-      min-width: 700px;
-      transition: transform ease-in-out 0.2s;
+      min-width: 550px;
+      transition: transform ease-in-out 0.25s;
+      transform: translateX(50%);
     }
 
     .screenshot:hover {
-      transform: translateX(-50%);
+      transform: translateX(0);
     }
   }
 
   @media (min-width: 1200px) {
     .screenshot {
-      min-width: 1057px;
+      min-width: 850px;
     }
   }
 
@@ -275,7 +276,7 @@ const VERSION = "0.13.1";
     flex-direction: column;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .allDownloads {
       flex-direction: row;
     }
@@ -287,7 +288,7 @@ const VERSION = "0.13.1";
     margin-bottom: 40px;
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1024px) {
     .downloadsLinks:not(:last-child) {
       margin-right: 20px;
     }
