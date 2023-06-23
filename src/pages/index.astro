@@ -48,7 +48,7 @@ const VERSION = "0.13.1";
         <div class="allDownloads">
           {/* MAC */}
           <div class="downloadsLinks">
-            <i class="osIcon fa fa-apple"></i>
+            <i class="osIcon fa-brands fa-apple"></i>
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
@@ -68,7 +68,7 @@ const VERSION = "0.13.1";
 
           {/* WINDOWS */}
           <div class="downloadsLinks">
-            <i class="osIcon fa fa-windows"></i>
+            <i class="osIcon fa-brands fa-microsoft"></i>
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-x64-setup.exe`}
@@ -103,7 +103,7 @@ const VERSION = "0.13.1";
 
           {/* LINUX */}
           <div class="downloadsLinks">
-            <i class="osIcon fa fa-linux"></i>
+            <i class="osIcon fa-brands fa-linux"></i>
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-x86_64.AppImage`}
@@ -160,11 +160,11 @@ const VERSION = "0.13.1";
             <a
               href="https://twitter.com/museeks"
               title="Keep updated !"
-              class="linksIcon fa fa-twitter"></a>
+              class="linksIcon fa-brands fa-twitter"></a>
             <a
               href="https://github.com/martpie/museeks"
               title="Bugs reports, features requests and sources"
-              class="linksIcon fa fa-github"></a>
+              class="linksIcon fa-brands fa-github"></a>
           </div>
           <div class="madeBy textMuted">
             made with <span class="heart">♥</span> by{" "}
@@ -321,5 +321,9 @@ const VERSION = "0.13.1";
   .textMuted {
     color: var(--text-muted);
     font-size: 0.875rem;
+  }
+
+  :global(.fab) {
+    font-family: --fa-style-family-brands;
   }
 </style>
