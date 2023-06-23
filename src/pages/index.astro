@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import Link from "../components/Link.astro";
 import ButtonGroup from "../components/ButtonGroup.astro";
+import Icon from "../components/Icon.astro";
+import VisuallyHidden from "../components/VisuallyHidden.astro";
 
 const URL_PREFIX = "https://github.com/martpie/museeks/releases/download/";
 const VERSION = "0.13.1";
@@ -48,7 +50,7 @@ const VERSION = "0.13.1";
         <div class="allDownloads">
           {/* MAC */}
           <div class="downloadsLinks">
-            <i class="osIcon fa-brands fa-apple"></i>
+            <Icon class="osIcon" name="apple" />
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
@@ -68,7 +70,7 @@ const VERSION = "0.13.1";
 
           {/* WINDOWS */}
           <div class="downloadsLinks">
-            <i class="osIcon fa-brands fa-microsoft"></i>
+            <Icon class="osIcon" name="windows11" />
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-x64-setup.exe`}
@@ -103,7 +105,7 @@ const VERSION = "0.13.1";
 
           {/* LINUX */}
           <div class="downloadsLinks">
-            <i class="osIcon fa-brands fa-linux"></i>
+            <Icon class="osIcon" name="linux" />
             <ButtonGroup>
               <ButtonLink
                 href={`${URL_PREFIX}${VERSION}/museeks-x86_64.AppImage`}
@@ -157,14 +159,17 @@ const VERSION = "0.13.1";
         {/* FOOTER */}
         <footer class="footer">
           <div class="links">
-            <a
-              href="https://twitter.com/museeks"
-              title="Keep updated !"
-              class="linksIcon fa-brands fa-twitter"></a>
+            <a href="https://twitter.com/museeks">
+              <Icon class="linksIcon" name="twitter" />
+              <VisuallyHidden>Twitter</VisuallyHidden>
+            </a>
             <a
               href="https://github.com/martpie/museeks"
               title="Bugs reports, features requests and sources"
-              class="linksIcon fa-brands fa-github"></a>
+            >
+              <Icon class="linksIcon" name="github" />
+              <VisuallyHidden>Twitter</VisuallyHidden>
+            </a>
           </div>
           <div class="madeBy textMuted">
             made with <span class="heart">♥</span> by{" "}
@@ -290,9 +295,10 @@ const VERSION = "0.13.1";
 
   .osIcon {
     display: block;
-    font-size: 2rem;
     margin-bottom: 20px;
-    text-align: center;
+    width: 1.8rem;
+    height: auto;
+    margin-inline: auto;
   }
 
   .heart {
@@ -300,18 +306,18 @@ const VERSION = "0.13.1";
   }
 
   .links {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
     margin-bottom: 20px;
     font-size: 1.6rem;
   }
 
   .linksIcon {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .linksIcon:not(:last-child) {
-    margin-right: 12px;
+    display: block;
+    width: 1.5rem;
+    height: auto;
+    margin-inline: auto;
   }
 
   .madeBy {

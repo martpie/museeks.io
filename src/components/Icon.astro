@@ -1,0 +1,27 @@
+---
+import {
+  siWindows11,
+  siApple,
+  siLinux,
+  siTwitter,
+  siGithub,
+} from "simple-icons";
+
+const ICONS = {
+  windows11: siWindows11,
+  apple: siApple,
+  linux: siLinux,
+  twitter: siTwitter,
+  github: siGithub,
+};
+
+export interface Props {
+  name: keyof typeof ICONS;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+const icon = ICONS[name];
+---
+
+<i class={className} set:html={icon.svg} />
