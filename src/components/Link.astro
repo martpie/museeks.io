@@ -11,9 +11,9 @@ const { href, openInNewTab, title, classes } = Astro.props;
 
 <a
   href={href}
-  class:list={["link", classes]}
-  target={openInNewTab ? "_blank" : undefined}
-  rel={openInNewTab ? "noreferrer" : undefined}
+  class:list={['link', classes]}
+  target={openInNewTab ? '_blank' : undefined}
+  rel={openInNewTab ? 'noreferrer' : undefined}
   title={title}
 >
   <slot />
@@ -23,6 +23,7 @@ const { href, openInNewTab, title, classes } = Astro.props;
   .link {
     color: var(--link-color);
     text-decoration: none;
+    font-weight: 500;
   }
 
   .link:hover {
