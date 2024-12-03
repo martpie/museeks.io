@@ -8,7 +8,7 @@ import Link from "../components/Link.astro";
 import VisuallyHidden from "../components/VisuallyHidden.astro";
 
 const URL_PREFIX = "https://github.com/martpie/museeks/releases/download/";
-const VERSION = "0.13.1";
+const VERSION = "0.20.0";
 ---
 
 <Layout
@@ -34,14 +34,14 @@ const VERSION = "0.13.1";
 
         <p class="downloadsMetas textMuted">
           latest version: {VERSION}
-           |
+          |
           <Link
             href={`https://github.com/martpie/museeks/releases/tag/${VERSION}`}
             openInNewTab
           >
             changes
           </Link>
-           |
+          |
           <Link href="https://github.com/martpie/museeks/releases" openInNewTab>
             other releases
           </Link>
@@ -53,17 +53,11 @@ const VERSION = "0.13.1";
             <Icon class="osIcon" name="apple" />
             <ButtonGroup>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-arm64.dmg`}
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_universal.dmg`}
                 use="primary"
                 expand
               >
-                Apple Silicon
-              </ButtonLink>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-x64.dmg`}
-                title="macOS Intel"
-              >
-                Intel
+                Apple Silicon / Intel
               </ButtonLink>
             </ButtonGroup>
           </div>
@@ -73,32 +67,11 @@ const VERSION = "0.13.1";
             <Icon class="osIcon" name="windows11" />
             <ButtonGroup>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-x64-setup.exe`}
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_x64-setup.exe`}
                 use="primary"
                 expand
               >
                 Windows 64bit
-              </ButtonLink>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-ia32-setup.exe`}
-                title="AppImage 32bit"
-              >
-                32bit
-              </ButtonLink>
-            </ButtonGroup>
-            <ButtonGroup>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-x64-portable.exe`}
-                use="primary"
-                expand
-              >
-                Portable 64bit
-              </ButtonLink>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-ia32-portable.exe`}
-                title="AppImage 32bit"
-              >
-                32bit
               </ButtonLink>
             </ButtonGroup>
           </div>
@@ -108,49 +81,27 @@ const VERSION = "0.13.1";
             <Icon class="osIcon" name="linux" />
             <ButtonGroup>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-x86_64.AppImage`}
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_amd64.AppImage`}
                 use="primary"
                 expand
               >
                 AppImage 64bit
               </ButtonLink>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-i386.AppImage`}
-                title="AppImage 32bit"
-              >
-                32bit
-              </ButtonLink>
             </ButtonGroup>
-
             <ButtonGroup>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-amd64.deb`}
-                use="primary"
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_amd64.deb`}
+                use="secondary"
                 expand
               >
-                .deb 64bit
+                .deb
               </ButtonLink>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-i386.deb`}
-                title=".deb 32bit"
-              >
-                32bit
-              </ButtonLink>
-            </ButtonGroup>
-
-            <ButtonGroup>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-x86_64.rpm`}
-                use="primary"
+                href={`${URL_PREFIX}${VERSION}/Museeks-${VERSION}.x86_64.rpm`}
+                use="secondary"
                 expand
               >
-                .rpm 64bit
-              </ButtonLink>
-              <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks-i686.rpm`}
-                title=".rpm 32bit"
-              >
-                32bit
+                .rpm
               </ButtonLink>
             </ButtonGroup>
           </div>
@@ -174,7 +125,7 @@ const VERSION = "0.13.1";
           <div class="madeBy textMuted">
             made with <span class="heart">♥</span> by{" "}
             <Link href="https://martpie.io" openInNewTab>@martpie</Link>{" "}
-             and{" "}
+            and{" "}
             <Link
               href="https://github.com/martpie/museeks/graphs/contributors"
               openInNewTab
@@ -188,7 +139,7 @@ const VERSION = "0.13.1";
   </div>
 </Layout>
 
-<style>
+<style scoped>
   body {
     overflow-x: hidden;
   }
@@ -261,7 +212,7 @@ const VERSION = "0.13.1";
   }
 
   .downloads {
-    width: 780px;
+    width: 680px;
     max-width: 100%;
     margin: auto;
   }
@@ -280,6 +231,7 @@ const VERSION = "0.13.1";
   .allDownloads {
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
   @media (min-width: 1024px) {
@@ -292,12 +244,6 @@ const VERSION = "0.13.1";
     flex: 1 0 0;
     min-width: 0;
     margin-bottom: 40px;
-  }
-
-  @media (min-width: 1024px) {
-    .downloadsLinks:not(:last-child) {
-      margin-right: 20px;
-    }
   }
 
   :global(.osIcon) {
