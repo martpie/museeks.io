@@ -8,7 +8,7 @@ import Link from "../components/Link.astro";
 import VisuallyHidden from "../components/VisuallyHidden.astro";
 
 const URL_PREFIX = "https://github.com/martpie/museeks/releases/download/";
-const VERSION = "0.21.1";
+const VERSION = "0.22.0";
 ---
 
 <Layout
@@ -102,6 +102,18 @@ const VERSION = "0.21.1";
                 expand
               >
                 .rpm
+              </ButtonLink>
+            </ButtonGroup>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks.flatpak`}
+                use="secondary"
+                expand
+              >
+                Flatpak
+              </ButtonLink>
+              <ButtonLink href="" use="secondary" expand disabled>
+                Flathub (soon)
               </ButtonLink>
             </ButtonGroup>
           </div>

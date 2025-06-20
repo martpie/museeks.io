@@ -5,15 +5,20 @@ export interface Props {
   title?: string;
   use?: "secondary" | "primary";
   expand?: boolean;
+  disabled?: boolean;
 }
 
-const { use = "secondary", expand, children, ...rest } = Astro.props;
+const { use = "secondary", expand, disabled, children, ...rest } = Astro.props;
 ---
 
 <a
   class:list={[
     "buttonLink",
-    { primary: use === "primary", expand: expand === true },
+    {
+      primary: use === "primary",
+      expand: expand === true,
+      disabled: disabled === true,
+    },
   ]}
   {...rest}
 >
@@ -50,5 +55,10 @@ const { use = "secondary", expand, children, ...rest } = Astro.props;
 
   .expand {
     flex: 1;
+  }
+
+  .disabled {
+    opacity: 0.3;
+    pointer-events: none;
   }
 </style>
