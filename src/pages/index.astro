@@ -134,7 +134,7 @@ const VERSION = "0.22.3";
               <VisuallyHidden>Twitter</VisuallyHidden>
             </a>
           </div>
-          <div class="madeBy textMuted">
+          <p class="madeBy textMuted">
             made with <span class="heart">♥</span> by{" "}
             <Link href="https://martpie.io" openInNewTab>@martpie</Link>{" "}
             and{" "}
@@ -144,157 +144,157 @@ const VERSION = "0.22.3";
             >
               awesome people
             </Link>
-          </div>
+          </p>
         </footer>
       </div>
     </main>
   </div>
-</Layout>
 
-<style scoped>
-  body {
-    overflow-x: hidden;
-  }
+  <style scoped>
+    body {
+      overflow-x: hidden;
+    }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
-  }
-
-  @media (min-width: 1024px) {
     .container {
-      flex-direction: row-reverse;
+      display: flex;
+      flex-direction: column;
+      padding: 0 15px;
     }
-  }
 
-  .screenshotWrapper {
-    position: relative;
-  }
+    @media (min-width: 1024px) {
+      .container {
+        flex-direction: row-reverse;
+      }
+    }
 
-  .screenshot {
-    width: 1057px; /* 703px height */
-    max-width: 100%;
-    height: auto;
-  }
-
-  @media (min-width: 1024px) {
     .screenshotWrapper {
-      flex: 1.5 0 auto;
-      max-width: 700px;
+      position: relative;
     }
 
     .screenshot {
-      position: absolute;
-      margin-left: auto;
-      margin-top: auto;
-      margin-bottom: auto;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      min-width: 550px;
-      transition: transform ease-in-out 0.25s;
-      transform: translateX(50%);
+      width: 1057px; /* 703px height */
+      max-width: 100%;
+      height: auto;
     }
 
-    .screenshot:hover {
-      transform: translateX(0);
+    @media (min-width: 1024px) {
+      .screenshotWrapper {
+        flex: 1.5 0 auto;
+        max-width: 700px;
+      }
+
+      .screenshot {
+        position: absolute;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        min-width: 550px;
+        transition: transform ease-in-out 0.25s;
+        transform: translateX(50%);
+      }
+
+      .screenshot:hover {
+        transform: translateX(0);
+      }
     }
-  }
 
-  @media (min-width: 1200px) {
-    .screenshot {
-      min-width: 850px;
+    @media (min-width: 1200px) {
+      .screenshot {
+        min-width: 850px;
+      }
     }
-  }
 
-  @media (min-width: 1400px) {
-    .screenshot {
-      min-width: 1057px;
+    @media (min-width: 1400px) {
+      .screenshot {
+        min-width: 1057px;
+      }
     }
-  }
 
-  .main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 3;
-  }
+    .main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 3;
+    }
 
-  .downloads {
-    width: 680px;
-    max-width: 100%;
-    margin: auto;
-  }
+    .downloads {
+      width: 680px;
+      max-width: 100%;
+      margin: auto;
+    }
 
-  .downloadsTitle {
-    margin-top: 0;
-    text-align: center;
-    font-weight: normal;
-  }
+    .downloadsTitle {
+      margin-top: 0;
+      text-align: center;
+      font-weight: normal;
+    }
 
-  .downloadsMetas {
-    text-align: center;
-    margin-bottom: 30px;
-  }
+    .downloadsMetas {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-  .allDownloads {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  @media (min-width: 1024px) {
     .allDownloads {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
-  }
 
-  .downloadsLinks {
-    flex: 1 0 0;
-    min-width: 0;
-    margin-bottom: 40px;
-  }
+    @media (min-width: 1024px) {
+      .allDownloads {
+        flex-direction: row;
+      }
+    }
 
-  :global(.osIcon) {
-    display: block;
-    margin-bottom: 20px;
-    width: 1.8rem;
-    height: auto;
-    margin-inline: auto;
-  }
+    .downloadsLinks {
+      flex: 1 0 0;
+      min-width: 0;
+      margin-bottom: 40px;
+    }
 
-  .heart {
-    color: var(--heart);
-  }
+    :global(.osIcon) {
+      display: block;
+      margin-bottom: 20px;
+      width: 1.8rem;
+      height: auto;
+      margin-inline: auto;
+    }
 
-  .links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-  }
+    .heart {
+      color: var(--heart);
+    }
 
-  :global(.linksIcon) {
-    display: block;
-    width: 1.5rem;
-    height: auto;
-    margin-inline: auto;
-  }
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
 
-  .madeBy {
-    text-align: center;
-  }
+    :global(.linksIcon) {
+      display: block;
+      width: 1.5rem;
+      height: auto;
+      margin-inline: auto;
+    }
 
-  .textMuted {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-  }
+    .madeBy {
+      text-align: center;
+    }
 
-  :global(.fab) {
-    font-family: --fa-style-family-brands;
-  }
-</style>
+    .textMuted {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    :global(.fab) {
+      font-family: --fa-style-family-brands;
+    }
+  </style>
+</Layout>
