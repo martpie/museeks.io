@@ -1,27 +1,31 @@
 "use client";
 
-import { Suspense, useDeferredValue } from 'react';
+import { Suspense } from 'react';
 import { useState } from 'react';
 import useSWR from 'swr'
 
 export default function TranslationStatus() {
   const [branch, setBranch] = useState('master');
-  const deferredBranch = useDeferredValue(branch);
 
   return (
     <>
-      <label>
-        Branch
-        <input
-          type="text"
-          value={branch}
-          onChange={(e) => setBranch(e.target.value)}
-        />
-      </label>
+      <BranchSelector branch={branch} setBranch={setBranch} />
       <Suspense fallback={<p>loading...</p>}>
-        <TranslationStatusImpl branch={deferredBranch} />
+        <TranslationStatusImpl branch={branch} />
       </Suspense>
     </>
+  );
+}
+
+function BranchSelector(props: { branch: string, setBranch: (branch: string) => void }) {
+  return (
+    <label>
+      Branch
+      <select value={props.branch} onInput={(e) => props.setBranch(e.currentTarget.value)}>
+        <option value="master">master</option>
+        <option value="release">release</option>
+      </select>
+    </label>
   );
 }
 
