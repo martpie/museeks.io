@@ -11,7 +11,7 @@
 		"prettier": "prettier -w ."
 	},
 	"dependencies": {
-		"astro": "^4.16.16",
+		"astro": "5.11.0",
 		"simple-icons": "^12"
 	},
 	"devDependencies": {
