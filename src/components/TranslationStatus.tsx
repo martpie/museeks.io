@@ -57,28 +57,26 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Language</th>
-              <th>Missing</th>
-              <th>Translated</th>
-              <th>Total</th>
-              <th>Completion</th>
-              <th></th>
+              <th className={styles.tableHeader}>Language</th>
+              <th className={styles.tableHeader}>Missing</th>
+              <th className={styles.tableHeader}>Translated</th>
+              <th className={styles.tableHeader}>Total</th>
+              <th className={styles.tableHeader}>Completion</th>
             </tr>
           </thead>
           <tbody>
             {data.map((stat) => (
               <tr key={stat.language}>
-                <td>{stat.language}</td>
+                <td>
+                  <a className={styles.link} href={`https://github.com/martpie/museeks/blob/master/src/translations/${stat.language}.po`}>
+                    {stat.language}
+                  </a>
+                </td>
                 <td>{stat.missing}</td>
                 <td>{stat.translated}</td>
                 <td>{stat.total}</td>
                 <td className={stat.completionPercentage === 100 ? styles.ok : styles.notOk}>
                   {stat.completionPercentage}%
-                </td>
-                <td>
-                  <a className={styles.link} href={`https://github.com/martpie/museeks/blob/master/src/translations/${stat.language}.po`}>
-                    source
-                  </a>
                 </td>
               </tr>
             ))}
