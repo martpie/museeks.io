@@ -1,8 +1,43 @@
 ---
+import Link from "../components/Link.astro";
 import TranslationStatus from "../components/TranslationStatus.tsx";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<div>
-  <h1>Translation Status</h1>
-  <TranslationStatus client:only />
-</div>
+<Layout
+  title="Museeks - Translation Status"
+  description="Progress dashboard for Museeks translations"
+>
+  <div class="content">
+    <Link href="/">← Back to Home </Link>
+    <h1 class="lead">Translation Status</h1>
+    <Link
+      href="https://github.com/martpie/museeks/tree/master/src/translations"
+    >
+      source code
+    </Link>
+
+    <div class="insights">
+      <TranslationStatus client:only />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .lead {
+    font-weight: normal;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .insights {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>

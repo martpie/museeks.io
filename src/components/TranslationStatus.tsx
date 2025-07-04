@@ -1,8 +1,6 @@
-"use client";
-
-import { Suspense } from 'react';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import useSWR from 'swr'
+import styles from './TranslationStatus.module.css';
 
 export default function TranslationStatus() {
   const [branch, setBranch] = useState('master');
@@ -19,13 +17,15 @@ export default function TranslationStatus() {
 
 function BranchSelector(props: { branch: string, setBranch: (branch: string) => void }) {
   return (
-    <label>
-      Branch
+    <div>
+      <label className={styles.notVisible}>
+        Branch
+      </label>
       <select value={props.branch} onInput={(e) => props.setBranch(e.currentTarget.value)}>
         <option value="master">master</option>
         <option value="release">release</option>
       </select>
-    </label>
+    </div>
   );
 }
 
@@ -54,7 +54,7 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
       {data.length === 0 ? (
         <p>No translation files found.</p>
       ) : (
-        <table>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>Language</th>
@@ -62,6 +62,7 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
               <th>Translated</th>
               <th>Total</th>
               <th>Completion</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -71,8 +72,13 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
                 <td>{stat.missing}</td>
                 <td>{stat.translated}</td>
                 <td>{stat.total}</td>
-                <td>
+                <td className={stat.completionPercentage === 100 ? styles.ok : styles.notOk}>
                   {stat.completionPercentage}%
+                </td>
+                <td>
+                  <a className={styles.link} href={`https://github.com/martpie/museeks/blob/master/src/translations/${stat.language}.po`}>
+                    source
+                  </a>
                 </td>
               </tr>
             ))}
@@ -99,50 +105,45 @@ interface TranslationStats {
 async function translationsFetcher(url: string): Promise<Array<TranslationStats>> {
   const response = await fetch(url);
 
-  try {
-    if (!response.ok) {
-      throw new Error(`Failed to fetch translations: ${response.statusText}`);
-    }
-
-    const files = await response.json();
-
-    const translationFiles = files.filter((file: any) =>
-      file.name.endsWith('.po') // Exclude English as it's the base language
-    );
-
-    // Process each .po file
-    const stats = await Promise.all(translationFiles.map(async (file: any) => {
-      const contentResponse = await fetch(file.download_url);
-      const content = await contentResponse.text();
-
-      // Count msgid and non-empty msgstr to determine translation status
-      const msgidMatches = content.match(/msgid "[^"].*"/g) || [];
-      const msgstrMatches = content.match(/msgstr "[^"].*"/g) || [];
-      const nonEmptyMsgstr = msgstrMatches.filter(str => str !== 'msgstr ""').length;
-
-      // Get language code from filename (e.g., "fr.po" -> "fr")
-      const langCode = file.name.replace('.po', '');
-      // Convert language code to corresponding emoji flag
-      const language = langCode;
-
-      // Calculate percentage
-      const total = msgidMatches.length;
-      const translated = nonEmptyMsgstr;
-      const completionPercentage = total > 0 ? Math.round((translated / total) * 100) : 0;
-
-      return {
-        language,
-        missing: total - translated,
-        translated,
-        total,
-        completionPercentage,
-      };
-    }));
-
-    // Sort by completion percentage descending
-    return stats.sort((a, b) => b.completionPercentage - a.completionPercentage);
-  } catch (error) {
-    console.error('Error fetching translation data:', error);
-    return [];
+  if (!response.ok) {
+    throw new Error(`Failed to fetch translations: ${response.statusText}`);
   }
+
+  const files = await response.json();
+
+  const translationFiles = files.filter((file: any) =>
+    file.name.endsWith('.po') // Exclude English as it's the base language
+  );
+
+  // Process each .po file
+  const stats = await Promise.all(translationFiles.map(async (file: any) => {
+    const contentResponse = await fetch(file.download_url);
+    const content = await contentResponse.text();
+
+    // Count msgid and non-empty msgstr to determine translation status
+    const msgidMatches = content.match(/msgid "[^"].*"/g) || [];
+    const msgstrMatches = content.match(/msgstr "[^"].*"/g) || [];
+    const nonEmptyMsgstr = msgstrMatches.filter(str => str !== 'msgstr ""').length;
+
+    // Get language code from filename (e.g., "fr.po" -> "fr")
+    const langCode = file.name.replace('.po', '');
+    // Convert language code to corresponding emoji flag
+    const language = langCode;
+
+    // Calculate percentage
+    const total = msgidMatches.length;
+    const translated = nonEmptyMsgstr;
+    const completionPercentage = total > 0 ? Math.round((translated / total) * 100) : 0;
+
+    return {
+      language,
+      missing: total - translated,
+      translated,
+      total,
+      completionPercentage,
+    };
+  }));
+
+  // Sort by completion percentage descending
+  return stats.sort((a, b) => b.completionPercentage - a.completionPercentage);
 }
