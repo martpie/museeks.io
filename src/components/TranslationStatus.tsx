@@ -18,7 +18,7 @@ export default function TranslationStatus() {
           onChange={(e) => setBranch(e.target.value)}
         />
       </label>
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<p>loading...</p>}>
         <TranslationStatusImpl branch={deferredBranch} />
       </Suspense>
     </>
@@ -38,7 +38,6 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
       revalidateIfStale: false,
       revalidateOnReconnect: false,
       revalidateOnFocus: false,
-      // fallbackData: []
     }
   );
 
