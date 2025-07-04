@@ -16,28 +16,33 @@ import Layout from "../layouts/Layout.astro";
     >
       source code
     </Link>
+    •
+    <Link
+      href="https://github.com/martpie/museeks/releases/tag/0.22.0"
+      openInNewTab>translation guide</Link
+    >
 
     <div class="insights">
       <TranslationStatus client:only />
     </div>
   </div>
+
+  <style>
+    .lead {
+      font-weight: normal;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .insights {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  </style>
 </Layout>
-
-<style>
-  .lead {
-    font-weight: normal;
-  }
-
-  .content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-
-  .insights {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-</style>

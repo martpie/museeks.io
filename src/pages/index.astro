@@ -151,192 +151,194 @@ const VERSION = "0.22.3";
               openInNewTab
               >help translate <sup class="sup">new!</sup>
             </Link>
+            •
+            <Link href="/translations">status</Link>
           </p>
         </footer>
       </div>
     </main>
   </div>
+</Layout>
 
-  <style scoped>
-    body {
-      overflow-x: hidden;
-    }
+<style scoped>
+  body {
+    overflow-x: hidden;
+  }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  @media (min-width: 1024px) {
     .container {
-      display: flex;
-      flex-direction: column;
-      padding: 0 15px;
+      flex-direction: row-reverse;
     }
+  }
 
-    @media (min-width: 1024px) {
-      .container {
-        flex-direction: row-reverse;
-      }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 3;
+
+    @media screen and (min-width: 1024px) {
+      min-height: 100vh;
     }
+  }
 
-    .main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex: 3;
+  .screenshotWrapper {
+    position: relative;
+  }
 
-      @media screen and (min-width: 1024px) {
-        min-height: 100vh;
-      }
-    }
+  .screenshot {
+    width: 1057px; /* 703px height */
+    max-width: 100%;
+    height: auto;
+  }
 
+  @media (min-width: 1024px) {
     .screenshotWrapper {
-      position: relative;
+      flex: 1.5 0 auto;
+      max-width: 700px;
     }
 
     .screenshot {
-      width: 1057px; /* 703px height */
-      max-width: 100%;
-      height: auto;
+      position: absolute;
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      min-width: 550px;
+      transition: transform ease-in-out 0.25s;
+      transform: translateX(50%);
     }
 
-    @media (min-width: 1024px) {
-      .screenshotWrapper {
-        flex: 1.5 0 auto;
-        max-width: 700px;
-      }
-
-      .screenshot {
-        position: absolute;
-        margin-left: auto;
-        margin-top: auto;
-        margin-bottom: auto;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        min-width: 550px;
-        transition: transform ease-in-out 0.25s;
-        transform: translateX(50%);
-      }
-
-      .screenshot:hover {
-        transform: translateX(0);
-      }
+    .screenshot:hover {
+      transform: translateX(0);
     }
+  }
 
-    @media (min-width: 1200px) {
-      .screenshot {
-        min-width: 850px;
-      }
+  @media (min-width: 1200px) {
+    .screenshot {
+      min-width: 850px;
     }
+  }
 
-    @media (min-width: 1400px) {
-      .screenshot {
-        min-width: 1057px;
-      }
+  @media (min-width: 1400px) {
+    .screenshot {
+      min-width: 1057px;
     }
+  }
 
-    @media (min-width: 2000px) {
-      .container {
-        max-width: 1600px;
-        justify-content: center;
-        margin: auto;
-      }
-
-      .screenshot {
-        transform: none;
-        margin: auto;
-        left: 0;
-      }
-
-      .screenshotWrapper {
-        flex: 2;
-        max-width: initial;
-      }
-
-      .main {
-        flex: 2;
-      }
-    }
-
-    .downloads {
-      width: 680px;
-      max-width: 100%;
+  @media (min-width: 2000px) {
+    .container {
+      max-width: 1600px;
+      justify-content: center;
       margin: auto;
     }
 
-    .downloadsTitle {
-      margin-top: 0;
-      text-align: center;
-      font-weight: normal;
+    .screenshot {
+      transform: none;
+      margin: auto;
+      left: 0;
     }
 
-    .downloadsMetas {
-      text-align: center;
-      margin-bottom: 30px;
+    .screenshotWrapper {
+      flex: 2;
+      max-width: initial;
     }
 
+    .main {
+      flex: 2;
+    }
+  }
+
+  .downloads {
+    width: 680px;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .downloadsTitle {
+    margin-top: 0;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  .downloadsMetas {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .allDownloads {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 1023px) {
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
     .allDownloads {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
-      @media (max-width: 1023px) {
-        max-width: 300px;
-        margin: auto;
-      }
+      flex-direction: row;
     }
+  }
 
-    @media (min-width: 1024px) {
-      .allDownloads {
-        flex-direction: row;
-      }
-    }
+  .downloadsLinks {
+    flex: 1 0 0;
+    min-width: 0;
+    margin-bottom: 40px;
+  }
 
-    .downloadsLinks {
-      flex: 1 0 0;
-      min-width: 0;
-      margin-bottom: 40px;
-    }
+  :global(.osIcon) {
+    display: block;
+    margin-bottom: 20px;
+    width: 1.8rem;
+    height: auto;
+    margin-inline: auto;
+  }
 
-    :global(.osIcon) {
-      display: block;
-      margin-bottom: 20px;
-      width: 1.8rem;
-      height: auto;
-      margin-inline: auto;
-    }
+  .heart {
+    color: var(--heart);
+  }
 
-    .heart {
-      color: var(--heart);
-    }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
 
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      font-size: 1.6rem;
-    }
+  :global(.linksIcon) {
+    display: block;
+    width: 1.5rem;
+    height: auto;
+    margin-inline: auto;
+  }
 
-    :global(.linksIcon) {
-      display: block;
-      width: 1.5rem;
-      height: auto;
-      margin-inline: auto;
-    }
+  .madeBy {
+    text-align: center;
+  }
 
-    .madeBy {
-      text-align: center;
-    }
+  .textMuted {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
 
-    .textMuted {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
+  .sup {
+    color: #ff3074;
+  }
 
-    .sup {
-      color: #ff3074;
-    }
-
-    :global(.fab) {
-      font-family: --fa-style-family-brands;
-    }
-  </style>
-</Layout>
+  :global(.fab) {
+    font-family: --fa-style-family-brands;
+  }
+</style>
