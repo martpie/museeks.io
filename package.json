@@ -11,8 +11,14 @@
 		"prettier": "prettier -w ."
 	},
 	"dependencies": {
+		"@astrojs/react": "^4.3.0",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
 		"astro": "5.11.0",
-		"simple-icons": "^12"
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"simple-icons": "^12",
+		"swr": "^2.3.4"
 	},
 	"devDependencies": {
 		"biome": "^0.3.3"
