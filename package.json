@@ -17,6 +17,7 @@
 		"astro": "5.11.0",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-error-boundary": "^6.0.0",
 		"simple-icons": "^12",
 		"swr": "^2.3.4"
 	},

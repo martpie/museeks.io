@@ -1,17 +1,21 @@
 import { Suspense, useState } from 'react';
 import useSWR from 'swr'
+import { ErrorBoundary } from 'react-error-boundary';
 import styles from './TranslationStatus.module.css';
 
 export default function TranslationStatus() {
   const [branch, setBranch] = useState('master');
 
   return (
-    <>
+    <ErrorBoundary fallbackRender={({ error }) => {
+      console.error('Error in TranslationStatus:', error);
+      return (<p>x_x {error.message}</p>);
+    }}>
       <BranchSelector branch={branch} setBranch={setBranch} />
       <Suspense fallback={<p>loading...</p>}>
         <TranslationStatusImpl branch={branch} />
       </Suspense>
-    </>
+    </ErrorBoundary>
   );
 }
 
@@ -44,6 +48,8 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
       revalidateOnFocus: false,
     }
   );
+
+  console.log('data', data, 'error', error);
 
   if (error) {
     return <p>⚠️ Failed to load translation status: {error.message}</p>;
