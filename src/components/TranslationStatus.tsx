@@ -49,8 +49,6 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
     }
   );
 
-  console.log('data', data, 'error', error);
-
   if (error) {
     return <p>⚠️ Failed to load translation status: {error.message}</p>;
   }
