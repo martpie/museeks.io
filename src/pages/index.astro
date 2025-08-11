@@ -8,7 +8,7 @@ import Link from "../components/Link.astro";
 import VisuallyHidden from "../components/VisuallyHidden.astro";
 
 const URL_PREFIX = "https://github.com/martpie/museeks/releases/download/";
-const VERSION = "0.22.3";
+const VERSION = "0.23.0";
 ---
 
 <Layout
@@ -106,14 +106,68 @@ const VERSION = "0.22.3";
             </ButtonGroup>
             <ButtonGroup>
               <ButtonLink
-                href={`${URL_PREFIX}${VERSION}/museeks.flatpak`}
+                href={`${URL_PREFIX}${VERSION}/museeks-x86_64.flatpak`}
                 use="secondary"
                 expand
               >
                 Flatpak
               </ButtonLink>
-              <ButtonLink href="" use="secondary" expand disabled>
-                Flathub (soon)
+            </ButtonGroup>
+          </div>
+        </div>
+
+        {/** ARM binaries */}
+        <div class="allDownloads">
+          {/* MAC */}
+          <div class="downloadsLinks"></div>
+
+          {/* WINDOWS ARM */}
+          <div class="downloadsLinks">
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_arm64-setup.exe`}
+                use="primary"
+                expand
+              >
+                Windows ARM 64bit
+              </ButtonLink>
+            </ButtonGroup>
+          </div>
+
+          {/* LINUX ARM */}
+          <div class="downloadsLinks">
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_aarch64.AppImage`}
+                use="primary"
+                expand
+              >
+                AppImage ARM 64bit
+              </ButtonLink>
+            </ButtonGroup>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/Museeks_${VERSION}_arm64.deb`}
+                use="secondary"
+                expand
+              >
+                .deb
+              </ButtonLink>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/Museeks-${VERSION}-1.aarch64.rpm`}
+                use="secondary"
+                expand
+              >
+                .rpm
+              </ButtonLink>
+            </ButtonGroup>
+            <ButtonGroup>
+              <ButtonLink
+                href={`${URL_PREFIX}${VERSION}/museeks-aarch64.flatpak`}
+                use="secondary"
+                expand
+              >
+                Flatpak
               </ButtonLink>
             </ButtonGroup>
           </div>
