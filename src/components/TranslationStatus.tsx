@@ -1,16 +1,27 @@
 import { Suspense, useState } from 'react';
-import useSWR from 'swr'
 import { ErrorBoundary } from 'react-error-boundary';
+import useSWR from 'swr';
+
 import styles from './TranslationStatus.module.css';
 
 export default function TranslationStatus() {
   const [branch, setBranch] = useState('master');
 
   return (
-    <ErrorBoundary fallbackRender={({ error }) => {
-      console.error('Error in TranslationStatus:', error);
-      return (<p>x_x {error.message}</p>);
-    }}>
+    <ErrorBoundary
+      fallbackRender={({ error }) => {
+        let errorMessage: string;
+
+        if (error instanceof Error) {
+          errorMessage = error.message;
+        } else {
+          errorMessage = String(error);
+        }
+
+        console.error('Error in TranslationStatus:', error);
+        return <p>x_x {errorMessage}</p>;
+      }}
+    >
       <BranchSelector branch={branch} setBranch={setBranch} />
       <Suspense fallback={<p>loading...</p>}>
         <TranslationStatusImpl branch={branch} />
@@ -19,12 +30,10 @@ export default function TranslationStatus() {
   );
 }
 
-function BranchSelector(props: { branch: string, setBranch: (branch: string) => void }) {
+function BranchSelector(props: { branch: string; setBranch: (branch: string) => void }) {
   return (
     <div>
-      <label className={styles.notVisible}>
-        Branch
-      </label>
+      <label className={styles.notVisible}>Branch</label>
       <select value={props.branch} onInput={(e) => props.setBranch(e.currentTarget.value)}>
         <option value="master">master</option>
         <option value="release">release</option>
@@ -35,7 +44,7 @@ function BranchSelector(props: { branch: string, setBranch: (branch: string) => 
 
 type TranslationStatusImplProps = {
   branch: string;
-}
+};
 
 function TranslationStatusImpl(props: TranslationStatusImplProps) {
   const { data, error } = useSWR(
@@ -46,7 +55,7 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
       revalidateIfStale: false,
       revalidateOnReconnect: false,
       revalidateOnFocus: false,
-    }
+    },
   );
 
   if (error) {
@@ -72,7 +81,10 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
             {data.map((stat) => (
               <tr key={stat.language}>
                 <td>
-                  <a className={styles.link} href={`https://github.com/martpie/museeks/blob/master/src/translations/${stat.language}.po`}>
+                  <a
+                    className={styles.link}
+                    href={`https://github.com/martpie/museeks/blob/master/src/translations/${stat.language}.po`}
+                  >
                     {stat.language}
                   </a>
                 </td>
@@ -95,7 +107,6 @@ function TranslationStatusImpl(props: TranslationStatusImplProps) {
  * GitHub API helpers
  */
 
-
 interface TranslationStats {
   language: string;
   missing: number;
@@ -113,38 +124,40 @@ async function translationsFetcher(url: string): Promise<Array<TranslationStats>
 
   const files = await response.json();
 
-  const translationFiles = files.filter((file: any) =>
-    file.name.endsWith('.po') // Exclude English as it's the base language
+  const translationFiles = files.filter(
+    (file: any) => file.name.endsWith('.po'), // Exclude English as it's the base language
   );
 
   // Process each .po file
-  const stats = await Promise.all(translationFiles.map(async (file: any) => {
-    const contentResponse = await fetch(file.download_url);
-    const content = await contentResponse.text();
+  const stats = await Promise.all(
+    translationFiles.map(async (file: any) => {
+      const contentResponse = await fetch(file.download_url);
+      const content = await contentResponse.text();
 
-    // Count msgid and non-empty msgstr to determine translation status
-    const msgidMatches = content.match(/msgid "[^"].*"/g) || [];
-    const msgstrMatches = content.match(/msgstr "[^"].*"/g) || [];
-    const nonEmptyMsgstr = msgstrMatches.filter(str => str !== 'msgstr ""').length;
+      // Count msgid and non-empty msgstr to determine translation status
+      const msgidMatches = content.match(/msgid "[^"].*"/g) || [];
+      const msgstrMatches = content.match(/msgstr "[^"].*"/g) || [];
+      const nonEmptyMsgstr = msgstrMatches.filter((str) => str !== 'msgstr ""').length;
 
-    // Get language code from filename (e.g., "fr.po" -> "fr")
-    const langCode = file.name.replace('.po', '');
-    // Convert language code to corresponding emoji flag
-    const language = langCode;
+      // Get language code from filename (e.g., "fr.po" -> "fr")
+      const langCode = file.name.replace('.po', '');
+      // Convert language code to corresponding emoji flag
+      const language = langCode;
 
-    // Calculate percentage
-    const total = msgidMatches.length;
-    const translated = nonEmptyMsgstr;
-    const completionPercentage = total > 0 ? Math.round((translated / total) * 100) : 0;
+      // Calculate percentage
+      const total = msgidMatches.length;
+      const translated = nonEmptyMsgstr;
+      const completionPercentage = total > 0 ? Math.round((translated / total) * 100) : 0;
 
-    return {
-      language,
-      missing: total - translated,
-      translated,
-      total,
-      completionPercentage,
-    };
-  }));
+      return {
+        language,
+        missing: total - translated,
+        translated,
+        total,
+        completionPercentage,
+      };
+    }),
+  );
 
   // Sort by completion percentage descending
   return stats.sort((a, b) => b.completionPercentage - a.completionPercentage);
